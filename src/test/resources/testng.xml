@@ -1,0 +1,10 @@
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="myJob">
+    <test name="Staff.am Test">
+        <classes>
+            <class name="Staff.am.Test.StaffamTest"/>
+        </classes>
+    </test>
+</suite>

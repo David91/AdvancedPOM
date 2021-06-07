@@ -1,12 +1,14 @@
 package Staff.am.Test;
 
+import driver_manager.DriverSetter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-import staff.am.HomePage;
-import staff.am.RandomJobDetailsPage;
-import staff.am.SearchJobsPage;
+import staff.am.pages.HomePage;
+import staff.am.pages.RandomJobDetailsPage;
+import staff.am.pages.SearchJobsPage;
+import url_manager.UrlSetter;
 
 
 public class StaffamTest {
@@ -20,14 +22,13 @@ public class StaffamTest {
 
     @BeforeSuite
     public void chromeSetup() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver",
-                "src\\main\\resources\\chromedriver.exe");
+        UrlSetter.setUrl();
     }
 
     @BeforeClass
     public void setup() throws InterruptedException {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        DriverSetter.setDriver();
+        driver = DriverSetter.getDriver();
 
         homePage = new HomePage(driver).open();
         homePage.waitForPageLoad();
